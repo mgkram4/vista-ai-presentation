@@ -41,18 +41,18 @@ const VistaAIPresentation = () => {
       <div className="grid grid-cols-3 gap-6 max-w-4xl w-full">
         <div className="bg-gradient-to-br from-blue-50 to-blue-100 p-6 rounded-xl">
           <Zap className="w-10 h-10 text-blue-600 mb-3" />
-          <h3 className="font-semibold text-lg mb-2">60% Faster</h3>
-          <p className="text-sm text-gray-600">Approval times</p>
+          <h3 className="font-semibold text-lg mb-2">Rapid Approvals</h3>
+          <p className="text-sm text-gray-600">Reduce approval times from days to minutes</p>
         </div>
         <div className="bg-gradient-to-br from-green-50 to-green-100 p-6 rounded-xl">
           <TrendingUp className="w-10 h-10 text-green-600 mb-3" />
-          <h3 className="font-semibold text-lg mb-2">35% Higher</h3>
-          <p className="text-sm text-gray-600">Conversion rates</p>
+          <h3 className="font-semibold text-lg mb-2">Increased Conversions</h3>
+          <p className="text-sm text-gray-600">Engage customers 24/7 and guide them to approval</p>
         </div>
         <div className="bg-gradient-to-br from-purple-50 to-purple-100 p-6 rounded-xl">
           <Shield className="w-10 h-10 text-purple-600 mb-3" />
-          <h3 className="font-semibold text-lg mb-2">20% Lower</h3>
-          <p className="text-sm text-gray-600">Default rates</p>
+          <h3 className="font-semibold text-lg mb-2">Smarter Risk Analysis</h3>
+          <p className="text-sm text-gray-600">Leverage deeper data insights for better underwriting</p>
         </div>
       </div>
     </div>
@@ -420,12 +420,12 @@ const VistaAIPresentation = () => {
               <div className="bg-gradient-to-br from-green-50 to-green-100 p-4 rounded-lg">
                 <p className="text-sm text-gray-600 mb-1">Approval Rate</p>
                 <p className="text-2xl font-bold text-green-600">78%</p>
-                <p className="text-xs text-green-600">↑ 12% vs last month</p>
+                <p className="text-xs text-green-600 opacity-0">Placeholder</p>
               </div>
               <div className="bg-gradient-to-br from-blue-50 to-blue-100 p-4 rounded-lg">
                 <p className="text-sm text-gray-600 mb-1">Avg Deal Size</p>
                 <p className="text-2xl font-bold text-blue-600">$125K</p>
-                <p className="text-xs text-blue-600">↑ 8% vs last month</p>
+                <p className="text-xs text-blue-600 opacity-0">Placeholder</p>
               </div>
             </div>
             
