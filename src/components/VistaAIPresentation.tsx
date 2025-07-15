@@ -634,35 +634,39 @@ const VistaAIPresentation = () => {
   // Cost Summary Slide
   const CostSlide = () => (
     <div className="flex flex-col items-center justify-center h-full text-center px-8">
-      <h2 className="text-4xl font-bold mb-4">Estimated Monthly Cloud Costs</h2>
-      <p className="text-gray-600 mb-8 max-w-2xl">Based on current scale (~20 users/day), costs are minimal and scale with usage. Designed for cost-efficiency.</p>
+      <h2 className="text-4xl font-bold mb-4">Lean & Scalable Cloud Costs</h2>
+      <p className="text-gray-600 mb-8 max-w-3xl">By leveraging a modern serverless architecture on AWS, we can keep monthly costs exceptionally low, especially at your current scale. You only pay for what you actually use.</p>
       
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl w-full mb-8">
-        <div className="bg-white rounded-xl shadow-lg p-6">
-          <Bot className="w-12 h-12 text-blue-600 mx-auto mb-4" />
-          <h3 className="text-xl font-bold mb-2">Chatbot & Search</h3>
-          <p className="text-3xl font-bold text-blue-600">$50-100</p>
-          <p className="text-gray-600">per month</p>
+        <div className="bg-white rounded-xl shadow-lg p-6 border">
+          <div className="flex items-center justify-center mb-4">
+            <img src="/vercel.svg" alt="Vercel Logo" className="h-8 mr-2" />
+            <span className="text-2xl font-bold">+</span>
+            <img src="https://upload.wikimedia.org/wikipedia/commons/9/93/Amazon_Web_Services_Logo.svg" alt="AWS Logo" className="h-10 ml-2" />
+          </div>
+          <h3 className="text-xl font-bold mb-2">Frontend & Hosting</h3>
+          <p className="text-3xl font-bold text-gray-800">$20<span className="text-xl">/mo</span></p>
+          <p className="text-gray-600">Vercel Pro Plan</p>
         </div>
-        <div className="bg-white rounded-xl shadow-lg p-6">
-          <Brain className="w-12 h-12 text-green-600 mx-auto mb-4" />
-          <h3 className="text-xl font-bold mb-2">Credit & Doc AI</h3>
-           <p className="text-3xl font-bold text-green-600">$100-250</p>
-          <p className="text-gray-600">per month</p>
+        <div className="bg-white rounded-xl shadow-lg p-6 border">
+          <Zap className="w-12 h-12 text-yellow-500 mx-auto mb-4" />
+          <h3 className="text-xl font-bold mb-2">Backend & Database</h3>
+          <p className="text-3xl font-bold text-green-600">$0<span className="text-xl">/mo</span></p>
+          <p className="text-gray-600">AWS Free Tier (Lambda, DynamoDB)</p>
         </div>
-        <div className="bg-white rounded-xl shadow-lg p-6">
-          <BarChart3 className="w-12 h-12 text-orange-600 mx-auto mb-4" />
-          <h3 className="text-xl font-bold mb-2">Analytics & Infra</h3>
-          <p className="text-3xl font-bold text-orange-600">$75-150</p>
-          <p className="text-gray-600">per month</p>
+        <div className="bg-white rounded-xl shadow-lg p-6 border">
+          <Brain className="w-12 h-12 text-purple-600 mx-auto mb-4" />
+          <h3 className="text-xl font-bold mb-2">AI Service APIs</h3>
+          <p className="text-3xl font-bold text-blue-600">$5-15<span className="text-xl">/mo</span></p>
+          <p className="text-gray-600">AWS Bedrock & Textract (Usage-Based)</p>
         </div>
       </div>
       
       <div className="bg-gradient-to-r from-gray-700 to-gray-900 text-white p-8 rounded-xl max-w-3xl">
-        <h3 className="text-2xl font-bold mb-4">Total Estimated Cost: ~$225 - $500 / month</h3>
-        <p className="mb-6">Our architecture leverages serverless and auto-scaling to ensure you only pay for what you use, from 20 users to 20,000.</p>
+        <h3 className="text-2xl font-bold mb-4">Total Estimated Cost: ~$25 - $35 / month</h3>
+        <p className="mb-6">This architecture is built for extreme efficiency. The costs will only grow as your user base and revenue grow, ensuring your operational expenses are always aligned with your success.</p>
         <button className="px-8 py-3 bg-white text-blue-600 rounded-lg font-semibold hover:bg-gray-100 transition-colors">
-          Request Detailed Cost Breakdown
+          View Detailed Architecture
         </button>
       </div>
     </div>
