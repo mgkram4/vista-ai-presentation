@@ -1,6 +1,6 @@
 'use client';
 
-import { BarChart3, Bot, Brain, CheckCircle, ChevronLeft, ChevronRight, Clock, DollarSign, FileText, Search, Shield, Sparkles, TrendingUp, Users, Zap } from 'lucide-react';
+import { BarChart3, Bot, Brain, CheckCircle, ChevronLeft, ChevronRight, Clock, FileText, GanttChart, Search, Shield, Sparkles, TrendingUp, Users, Zap } from 'lucide-react';
 import { useEffect, useState } from 'react';
 
 const VistaAIPresentation = () => {
@@ -17,7 +17,9 @@ const VistaAIPresentation = () => {
     { id: 'search', title: 'Intelligent Equipment Search' },
     { id: 'analytics', title: 'Predictive Analytics Dashboard' },
     { id: 'document', title: 'Smart Document Processing' },
-    { id: 'summary', title: 'ROI & Impact Summary' }
+    { id: 'roadmap', title: 'Implementation Roadmap' },
+    { id: 'costs', title: 'Estimated Operating Costs' },
+    { id: 'future', title: 'Future AI Opportunities' }
   ];
 
   const nextSlide = () => setCurrentSlide((prev) => Math.min(prev + 1, slides.length - 1));
@@ -559,35 +561,143 @@ const VistaAIPresentation = () => {
     );
   };
 
-  // ROI Summary Slide
-  const SummarySlide = () => (
+  // Implementation Roadmap
+  const RoadmapSlide = () => {
+    const roadmapData = [
+      { feature: 'AI Customer Assistant', start: 0, duration: 2, color: 'bg-blue-500' },
+      { feature: 'Smart Document Processing', start: 1, duration: 3, color: 'bg-indigo-500' },
+      { feature: 'Instant Credit Pre-Approval', start: 2, duration: 4, color: 'bg-green-500' },
+      { feature: 'Intelligent Equipment Search', start: 4, duration: 3, color: 'bg-purple-500' },
+      { feature: 'Predictive Analytics', start: 5, duration: 3, color: 'bg-orange-500' },
+    ];
+    const totalMonths = 9;
+
+    return (
+      <div className="flex h-full">
+        <div className="w-1/3 p-8 flex flex-col justify-center">
+          <div className="mb-6">
+            <GanttChart className="w-12 h-12 text-gray-700 mb-4" />
+            <h2 className="text-3xl font-bold mb-4">Implementation Roadmap</h2>
+            <p className="text-gray-600 mb-6">A phased approach to building your AI-powered platform over ~9 months.</p>
+          </div>
+          <div className="bg-gray-50 p-6 rounded-lg">
+             <h4 className="font-semibold mb-3">Development Phases:</h4>
+             <ul className="space-y-2 text-sm">
+               <li>Phase 1: Chatbot & Document AI (Months 1-4)</li>
+               <li>Phase 2: Credit & Search AI (Months 3-7)</li>
+               <li>Phase 3: Analytics & Optimization (Months 6-9)</li>
+             </ul>
+          </div>
+        </div>
+        <div className="w-2/3 p-8 flex flex-col justify-center">
+          <div className="bg-white rounded-xl shadow-xl p-6">
+            <div className="relative">
+              {/* Header */}
+              <div className="grid grid-cols-9 text-center text-sm font-semibold mb-2">
+                {Array.from({ length: totalMonths }).map((_, i) => (
+                  <div key={i}>Month {i + 1}</div>
+                ))}
+              </div>
+              {/* Grid lines */}
+              <div className="absolute top-8 left-0 right-0 grid grid-cols-9 h-full">
+                {Array.from({ length: totalMonths }).map((_, i) => (
+                  <div key={i} className="border-r border-gray-200"></div>
+                ))}
+              </div>
+              
+              <div className="space-y-3 relative">
+                {roadmapData.map((item, index) => (
+                  <div key={index} className="flex items-center">
+                    <div className="w-48 text-sm font-medium pr-2 text-right">{item.feature}</div>
+                    <div className="flex-1 h-8">
+                      <div
+                        className={`${item.color} h-full rounded opacity-80 flex items-center justify-center text-white text-xs font-bold`}
+                        style={{
+                          marginLeft: `${(item.start / totalMonths) * 100}%`,
+                          width: `${(item.duration / totalMonths) * 100}%`,
+                        }}
+                      >
+                        {item.duration} mo
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+  };
+
+
+  // Cost Summary Slide
+  const CostSlide = () => (
     <div className="flex flex-col items-center justify-center h-full text-center px-8">
-      <h2 className="text-4xl font-bold mb-8">Transform Your Business with AI</h2>
+      <h2 className="text-4xl font-bold mb-4">Estimated Monthly Cloud Costs</h2>
+      <p className="text-gray-600 mb-8 max-w-2xl">Based on current scale (~20 users/day), costs are minimal and scale with usage. Designed for cost-efficiency.</p>
       
-      <div className="grid grid-cols-3 gap-6 max-w-5xl w-full mb-8">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl w-full mb-8">
         <div className="bg-white rounded-xl shadow-lg p-6">
-          <DollarSign className="w-12 h-12 text-green-600 mx-auto mb-4" />
-          <h3 className="text-2xl font-bold mb-2">$15M+</h3>
-          <p className="text-gray-600">Additional EBITDA by Year 5</p>
+          <Bot className="w-12 h-12 text-blue-600 mx-auto mb-4" />
+          <h3 className="text-xl font-bold mb-2">Chatbot & Search</h3>
+          <p className="text-3xl font-bold text-blue-600">$50-100</p>
+          <p className="text-gray-600">per month</p>
         </div>
         <div className="bg-white rounded-xl shadow-lg p-6">
-          <TrendingUp className="w-12 h-12 text-blue-600 mx-auto mb-4" />
-          <h3 className="text-2xl font-bold mb-2">3-4x</h3>
-          <p className="text-gray-600">Increase in Enterprise Value</p>
+          <Brain className="w-12 h-12 text-green-600 mx-auto mb-4" />
+          <h3 className="text-xl font-bold mb-2">Credit & Doc AI</h3>
+           <p className="text-3xl font-bold text-green-600">$100-250</p>
+          <p className="text-gray-600">per month</p>
         </div>
         <div className="bg-white rounded-xl shadow-lg p-6">
-          <Clock className="w-12 h-12 text-purple-600 mx-auto mb-4" />
-          <h3 className="text-2xl font-bold mb-2">12 Months</h3>
-          <p className="text-gray-600">Full Implementation Timeline</p>
+          <BarChart3 className="w-12 h-12 text-orange-600 mx-auto mb-4" />
+          <h3 className="text-xl font-bold mb-2">Analytics & Infra</h3>
+          <p className="text-3xl font-bold text-orange-600">$75-150</p>
+          <p className="text-gray-600">per month</p>
         </div>
       </div>
       
-      <div className="bg-gradient-to-r from-blue-600 to-purple-600 text-white p-8 rounded-xl max-w-3xl">
-        <h3 className="text-2xl font-bold mb-4">Ready to Get Started?</h3>
-        <p className="mb-6">Transform Vista Pacific into an AI-powered fintech leader</p>
+      <div className="bg-gradient-to-r from-gray-700 to-gray-900 text-white p-8 rounded-xl max-w-3xl">
+        <h3 className="text-2xl font-bold mb-4">Total Estimated Cost: ~$225 - $500 / month</h3>
+        <p className="mb-6">Our architecture leverages serverless and auto-scaling to ensure you only pay for what you use, from 20 users to 20,000.</p>
         <button className="px-8 py-3 bg-white text-blue-600 rounded-lg font-semibold hover:bg-gray-100 transition-colors">
-          Schedule Implementation Review
+          Request Detailed Cost Breakdown
         </button>
+      </div>
+    </div>
+  );
+
+  // Future Opportunities Slide
+  const FutureOpportunitiesSlide = () => (
+    <div className="flex flex-col items-center justify-center h-full text-center px-8">
+      <h2 className="text-4xl font-bold mb-6">Future AI Opportunities</h2>
+      <p className="text-gray-600 mb-10 max-w-3xl">Beyond the initial roadmap, AI can further enhance operations for your internal teams and leadership.</p>
+      
+      <div className="flex gap-8 max-w-5xl w-full">
+        {/* Agent Co-pilot */}
+        <div className="w-1/2 bg-white rounded-xl shadow-xl p-8 transform hover:scale-105 transition-transform">
+          <Users className="w-12 h-12 text-teal-600 mx-auto mb-4" />
+          <h3 className="text-2xl font-bold mb-3">Agent Co-Pilot</h3>
+          <p className="text-gray-600 mb-6">Empower your human agents with real-time AI assistance to close deals faster and improve service quality.</p>
+          <ul className="text-left space-y-3 text-gray-700">
+             <li className="flex"><CheckCircle className="w-5 h-5 text-teal-500 mr-3 flex-shrink-0" /><span>Real-time call transcription & summarization.</span></li>
+             <li className="flex"><CheckCircle className="w-5 h-5 text-teal-500 mr-3 flex-shrink-0" /><span>Suggests best responses and product info.</span></li>
+             <li className="flex"><CheckCircle className="w-5 h-5 text-teal-500 mr-3 flex-shrink-0" /><span>Automates data entry into your CRM.</span></li>
+          </ul>
+        </div>
+        
+        {/* Executive Dashboard */}
+        <div className="w-1/2 bg-white rounded-xl shadow-xl p-8 transform hover:scale-105 transition-transform">
+          <Sparkles className="w-12 h-12 text-amber-600 mx-auto mb-4" />
+          <h3 className="text-2xl font-bold mb-3">CEO Oversight AI</h3>
+          <p className="text-gray-600 mb-6">Gain effortless, high-level oversight of the entire business with an AI that surfaces critical insights and trends.</p>
+           <ul className="text-left space-y-3 text-gray-700">
+             <li className="flex"><CheckCircle className="w-5 h-5 text-amber-500 mr-3 flex-shrink-0" /><span>Daily business summary delivered to your inbox.</span></li>
+             <li className="flex"><CheckCircle className="w-5 h-5 text-amber-500 mr-3 flex-shrink-0" /><span>Proactively alerts on portfolio risks or opportunities.</span></li>
+             <li className="flex"><CheckCircle className="w-5 h-5 text-amber-500 mr-3 flex-shrink-0" /><span>Answers natural language questions about business data.</span></li>
+          </ul>
+        </div>
       </div>
     </div>
   );
@@ -600,7 +710,9 @@ const VistaAIPresentation = () => {
       case 3: return <SearchSlide />;
       case 4: return <AnalyticsSlide />;
       case 5: return <DocumentSlide />;
-      case 6: return <SummarySlide />;
+      case 6: return <RoadmapSlide />;
+      case 7: return <CostSlide />;
+      case 8: return <FutureOpportunitiesSlide />;
       default: return null;
     }
   };
